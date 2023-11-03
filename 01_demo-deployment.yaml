@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    namespace: $NS
+    name: $NS-2048-deployment
+    labels:
+        app: $NS-2048
+spec:
+    template:
+        metadata:
+            name: $NS-2048-pod
+            labels:
+                app: $NS-2048
+        spec:
+            containers:
+             - name: $NS-2048-container
+               image: amigoscode/2048:latest
+    replicas: 1
+    selector:
+        matchLabels:
+            app: $NS-2048
+---
+#EXAMPLE
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    namespace: jothan
+    name: jothan-2048-deployment
+    labels:
+        app: jothan-2048
+spec:
+    template:
+        metadata:
+            name: jothan-2048-pod
+            labels:
+                app: jothan-2048
+        spec:
+            containers:
+             - name: jothan-2048-container
+               image: amigoscode/2048:latest
+    replicas: 1
+    selector:
+        matchLabels:
+            app: jothan-2048
