@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: nginx-$NS-pod
+    labels:
+        app: nginx-$NS-app
+        type: frontend-app
+    namespace: $NS
+spec:
+    containers:
+     - name: nginx-$NS-container
+       image: nginx
+---
+#EXAMPLE
+apiVersion: v1
+kind: Pod
+metadata:
+    name: nginx-jothan-pod
+    labels:
+        app: nginx-jothan-app
+        type: frontend-app
+    namespace: jothan
+spec:
+    containers:
+     - name: nginx-jothan-cont
+       image: nginx
